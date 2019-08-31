@@ -118,7 +118,8 @@ class ContactController {
    * @param {Response} ctx.response
    */
   async destroy ({ params, request, response }) {
-    await Contact.find(params.id).delete(); 
+    const contact =  await Contact.find(params.id);
+    await contact.delete(); 
     console.log(params.id);
     return response.json({message : 'Contact deleted!'}); 
   }
